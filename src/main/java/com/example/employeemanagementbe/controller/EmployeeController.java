@@ -26,9 +26,9 @@ public class EmployeeController {
         return employeeRepository.save(emp);
     }
     @GetMapping("/employees/{id}")
-    public ResponseEntity<Employee> findEmployeeById(@PathVariable Long id){
+    public Employee findEmployeeById(@PathVariable Long id){
         Optional<Employee> employee = employeeRepository.findById(id);
-        return ResponseEntity.ok(employee.get());
+        return employee.get();
     }
     @PutMapping("/employees/{id}")
     public ResponseEntity<Employee> updateEmployeeById(@PathVariable Long id, @RequestBody Employee updatedEmployee){
